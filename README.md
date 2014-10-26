@@ -21,23 +21,36 @@ Or install it yourself as:
 
 ## Usage
 
+#### Required Fields
 
-
-### United States
-
-To find a city in the US, only city and country are required. To prevent inaccurate results for common city names (for example, Dover or St. Louis), provide the state name as well.
+AirBNB only requires a city for most results to be found, but to prevent inaccurate results for common city names (for example, Dover or St. Louis), providing city, state, and country (for US cities) and city/country for international cities is recommended.
 
 ```
-EnsareBnb.find_locations(
-	city: 'Seattle', 
-	state: 'WA', 
-	country: 'United States')
+EnsnareBnb.find_airbnb_hosts(
+	city: 'Chiang Mai', 
+	country: 'Thailand',
+	min_bedrooms:4, 
+	min_beds: 6)
 ```
-=> Returns JSON results of all AirBNB listings found in Seattle, WA.
+=> Returns JSON results of all AirBNB listings found in Chiang Mai, Thailand with a minimum of 4 bedrooms and 6 beds.
 
 #### Optional Fields
-:start\_date, :end\_date
-:guests, :price\_min, :price\_max, :max_pages
+{
+checkin: "11-01-2014", # intended checkin date in MM-DD-YYYY
+checkout: "11-20-2014", # intended checkout date
+guests: 7, # number of guests staying
+price\_min: 50, # minimum price
+price\_max: 100, # maximum price
+min\_beds: 6, # total number of beds
+min\_bedrooms: 4, # total number of bedrooms,
+min\_bathrooms: 3, # total number of bathrooms,
+keywords: "oceanfront" # additional keywords to search properties by
+}
+
+### TODO:
+
+Improve support for international city names by prefecture/province/etc.
+Add support for advanced filtering options: property type, amenities, and host language.
 
 --
 
