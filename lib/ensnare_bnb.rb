@@ -2,7 +2,8 @@ require_relative 'ensnare_bnb/version'
 require 'nokogiri'
 require 'json'
 require 'open-uri'
-require 'byebug'
+require 'active_support'
+require 'active_support/core_ext/hash'
 
 module EnsnareBnb
 
@@ -21,18 +22,20 @@ module EnsnareBnb
       # city, state, country
       # New-York--NY--United-States
       city = opts.fetch(:city)
-      state = opts.fetch(:state)
-      country = opts.fetch(:country)
-      min_bedrooms = opts.fetch(:min_bedrooms, '1')
+      state = opts.fetch(:state, nil)
+      country = opts.fetch(:country, nil)
 
-      city_query = [city, state, country].map do |str|
+      city_query = [city, state, country].compact.map do |str|
         str.gsub('-', '~').gsub(' ', '-')
       end.join('--')
+
+      search_params = opts.except(:city, :state, :country, :max_pages)
+      query = city_query + "?" + search_params.to_query
 
       # build intelligent options hashes/params in URLparams
 
       base_url = "https://www.airbnb.com"
-      search_url = "#{base_url}/s/#{city_query}"
+      search_url = "#{base_url}/s/#{query}"
 
       pages = opts.fetch(:max_pages, self.max_page_number(search_url))
       results = []
