@@ -35,17 +35,19 @@ EnsnareBnb.find_airbnb_hosts(
 => Returns JSON results of all AirBNB listings found in Chiang Mai, Thailand with a minimum of 4 bedrooms and 6 beds.
 
 #### Optional Fields
+<pre>
 {
-checkin: "11-01-2014", # intended checkin date in MM-DD-YYYY
-checkout: "11-20-2014", # intended checkout date
-guests: 7, # number of guests staying
-price\_min: 50, # minimum price
-price\_max: 100, # maximum price
-min\_beds: 6, # total number of beds
-min\_bedrooms: 4, # total number of bedrooms,
-min\_bathrooms: 3, # total number of bathrooms,
-keywords: "oceanfront" # additional keywords to search properties by
+checkin: "11-01-2014",   # intended checkin date in MM-DD-YYYY
+checkout: "11-20-2014",  # intended checkout date
+guests: 7, 				 # number of guests staying
+price_min: 50, 			 # minimum price
+price_max: 100, 		 # maximum price
+min_beds: 6, 			 # total number of beds
+min_bedrooms: 4, 		 # total number of bedrooms,
+min_bathrooms: 3, 		 # total number of bathrooms,
+keywords: "oceanfront" 	 # additional keywords to search properties by
 }
+</pre>
 
 ### TODO:
 
