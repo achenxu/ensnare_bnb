@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/hackerparadise2014/ensnare_bnb.png?label=ready&title=Ready)](https://waffle.io/hackerparadise2014/ensnare_bnb)
 # EnsnareBnb
 
 EnsnareBnb is a simple scraper designed to get listings from AirBNB in JSON
