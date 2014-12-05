@@ -24,6 +24,7 @@ module EnsnareBnb
       city = opts.fetch(:city)
       state = opts.fetch(:state, nil)
       country = opts.fetch(:country, nil)
+      sleep_time = opts.fetch(:sleep, 1)
 
       city_query = [city, state, country].compact.map do |str|
         str.gsub('-', '~').gsub(' ', '-')
@@ -61,6 +62,8 @@ module EnsnareBnb
 
           results << output
         end
+        # prevent bombarding the server with too many requests at once (default=>1)
+        sleep(sleep_time)
       end
       results
     end

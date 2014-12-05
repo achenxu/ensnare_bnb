@@ -38,6 +38,7 @@ EnsnareBnb.find_airbnb_hosts(
 #### Optional Fields
 <pre>
 {
+sleep: 1,				 # time (in seconds) to wait between each request 
 checkin: "11-01-2014",   # intended checkin date in MM-DD-YYYY
 checkout: "11-20-2014",  # intended checkout date
 guests: 7, 				 # number of guests staying
